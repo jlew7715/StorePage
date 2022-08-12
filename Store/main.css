@@ -14,7 +14,6 @@ h1 {
 header h2 {
     text-shadow: 3px 3px whitesmoke;
     margin-left: 5em;
-    margin-bottom: -.75;
     font-family:arial black;
     font-size:50px;
     background-image: 
@@ -51,7 +50,8 @@ a:hover {
 header {
     background-image: url(img/tortilla_background.webp);
     margin: 0 0 1.0em;
-    padding: 2em 2em 0.5em 0;
+    padding: 2em 2em 0.5em 0; 
+    box-shadow: #000 2px 2px 2px 2px;
 }
 nav {
     color: #000;
@@ -97,11 +97,10 @@ section#sidebar {
     width: 220px;
     float: right;
     position: relative;
-    display: block;
     background-image: url(img/tortilla_background.webp);
     margin: .5em 0 3.0em 1.5em;
     padding: .7em 0.5em 2.0em 1.7em;
-    box-shadow: #2ba967;
+    box-shadow: black 2px 2px 2px 2px;
 }
 section#main {
     background-image: url(img/tortilla_background.webp);
@@ -114,8 +113,8 @@ section div.panel {
     margin: 0 0.5em 1.0em 0.5em;
     padding: .50em;
     background-image: url(img/tortilla_background.webp);
-    border: #ccc solid 1px;
     border-radius: 0.6em;
+    box-shadow: black 2px 2px 2px 2px;
 }
 section div.panel img.tacotype {
     width: 100%;
@@ -126,7 +125,7 @@ footer {
     background-color: #40362f;
     height: 25px;
     font-size: 1.2em;
-    color: #fff;
+    color: lime;
     text-align: center;
     padding: 1.5em 2.0em;
 }
@@ -152,7 +151,7 @@ footer a {
 }
 footer a:hover {
     color: #fff;
-    text-decoration: underline;
+    text-decoration: blink;
 }
 .contentWrapper {
     margin: 0 auto;
@@ -163,12 +162,31 @@ div.clear {
     clear: left;
     font-size: 1%;
 }
-
-@-webkit-keyframes glow {
-    from {
-    text-shadow: 0 0 20px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-    }
-    to {
-    text-shadow: 0 0 30px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-    }
+button {
+    color:brown;
+    animation: shake 2s ;
+}
+button:hover {
+    -webkit-animation-name: blinker;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: cubic-bezier(.5, 0, 1, 1);
+    -webkit-animation-duration: .5s;
+    cursor: pointer;
+}
+@keyframes shake{
+    0%{transform: translateX(0)}
+    25%{transform: translateX(25px);}
+    50%{transform: translateX(-25px);}
+    100%{transform: translateX(0px);}
+}
+@-webkit-keyframes blinker {
+    from { opacity: 1.0; }
+    to { opacity: 0.0; }
+}
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
 }
